@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="FinalProject.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<head runat="server">
+    <title>האתר של קולדפליי!</title>
+    <style>
+        body {
+            direction: rtl;
+            background-color: #292929;
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+        }
+
+        a {
+	        color: white;
+	        text-decoration: none;
+	        font-weight: bold;
+        }
+
+        table {
+            padding: 5px;
+            width: 80%;
+            height: 80%; 
+            background-color: #292929;
+            border-collapse: collapse;
+        }
+
+        tr, td {
+            border: 2px solid white; 
+            box-sizing: border-box;
+        }
+
+        .mpF2 {
+            text-align: center;
+            color: white;
+        }
+
+        .topPage tr, td {
+            border: none;
+        }
+
+        .topPage {
+            white-space: nowrap;
+        }
+
+        .topPage td {
+            border: none;
+            display: inline-block;
+            width: 20%;
+        }
+
+        #siteBackground {
+            width: 60%; /* Adjust the width to your preference */
+        }
+
+        #myTimeContainer {
+            width: 20%; /* Adjust the width to your preference */
+        }
+
+    </style>
+
+    <script type="text/javascript" lang="javascript">
+        setInterval("myTimer()", 1000);
+
+        function myTimer() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("myTime").innerHTML = t;
+        }
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+	<center>
+        <br>
+        <table>
+            <tr height="70px" class="topPage">
+                <td id="loginMsg" align="center" style="color: white;">
+                    <%= loginMsg %>
+                </td>
+                <td id="siteBackground" align="center" style="color: white">
+                    <img src="Pictures/SiteBackground.png" width="80%" height="80%">
+                </td>
+                <td id="myTimeContainer" align="center" style="color: white;">
+                    <h2 class="mpF2" id="myTime"></h2>
+                </td>
+            </tr>
+
+            <tr height="30px">
+                <td align="center" bgcolor="#292929">
+                    <font color=red>
+                        מונה מבקרים באתר: 
+                        <%= Application["counter"] %> 
+                    </font>|
+
+                    <a href=Main.aspx> דף הבית </a> | <a href=Signup.aspx> הרשמה </a> | <a href=Info.aspx> חברי הלהקה </a> | <a href=Songs.aspx> שירים </a> | <a href=Shows.aspx> מופעים </a> | <a href="Pics.aspx"> תמונות </a>| <a href="Login.aspx"> התחבר </a>| <a href="loginAdmin.aspx"> כניסת מנהל </a>| &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>
+                </td>
+            </tr>
+
+            <tr>
+            <td valign="top">
+            <br>
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <center>
+                 <p style="color:white;">האתר נכתב על ידי שי קרן</p>
+            </center>
+        </table>
+     </center>
+
+</body>
+</html>
